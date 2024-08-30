@@ -1,0 +1,3 @@
+class ImageConstants {
+  static const String START_SCREEN_BG="assets/image/image 1.png";
+}
