@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
+import 'package:foodrecipes/view/home_screen/home_screen.dart';
 
 class BottomnavbarScreen extends StatefulWidget {
   const BottomnavbarScreen({super.key});
@@ -11,9 +12,7 @@ class BottomnavbarScreen extends StatefulWidget {
 class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
   int selectedTab = 0;
   List screen = [
-    Container(
-      color: Colors.red,
-    ),
+    HomeScreen(),
     Container(
       color: Colors.green,
     ),
@@ -27,9 +26,6 @@ class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("bottom nav bar"),
-      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
