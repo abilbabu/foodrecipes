@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
 import 'package:foodrecipes/utils/constants/image_constants.dart';
+import 'package:foodrecipes/view/bottomnavbarscreen/bottomnavbar_screen.dart';
 
 class StratScreen extends StatefulWidget {
   const StratScreen({super.key});
@@ -12,14 +13,56 @@ class StratScreen extends StatefulWidget {
 class _StratScreenState extends State<StratScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          _buildBackgroundImage(),
-          _buildGradientSections(),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            _buildBackgroundImage(),
+            _buildGradientSections(),
+            _buildHeader()
+          ],
+        ),
       ),
     );
+  }
+
+  Widget _buildHeader() {
+    return Positioned(
+            top: 13,
+            left: 0,
+            right: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.star,
+                  color: ColorConstants.white,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                // Text(
+                //   " 60k+ Premium recipes",
+                //   style: TextStyle(color: ColorConstants.white),
+                // )
+                RichText(
+                    text: TextSpan(
+                        text: "60k+ ",
+                        style: TextStyle(
+                            color: ColorConstants.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                        children: [
+                      TextSpan(
+                          text: " Premium recipes",
+                          style: TextStyle(
+                              color: ColorConstants.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.normal))
+                    ]))
+              ],
+            ),
+          );
   }
 
   Widget _buildGradientSections() {
@@ -60,27 +103,36 @@ class _StratScreenState extends State<StratScreen> {
               SizedBox(
                 height: 40,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-                decoration: BoxDecoration(
-                    color: ColorConstants.PrimaryColor,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Start Cooking",
-                      style:
-                          TextStyle(fontSize: 15, color: ColorConstants.white),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Icon(
-                      Icons.arrow_forward,
-                      color: ColorConstants.white,
-                    ),
-                  ],
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BottomnavbarScreen(),
+                      ));
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                  decoration: BoxDecoration(
+                      color: ColorConstants.PrimaryColor,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Start Cooking",
+                        style: TextStyle(
+                            fontSize: 15, color: ColorConstants.white),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: ColorConstants.white,
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],
