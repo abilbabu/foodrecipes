@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
-import 'package:foodrecipes/utils/constants/image_constants.dart';
 
 class CustomVideoCard extends StatelessWidget {
-  final String rating;
-  final String? videosize;
-  final String VideoTitle;
-  const CustomVideoCard({
-    required this.rating,
-    this.videosize,
-    required this.VideoTitle,
+  final Map videoData;
+
+  CustomVideoCard({
     super.key,
+    required this.videoData,
   });
 
   @override
@@ -25,8 +21,7 @@ class CustomVideoCard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(ImageConstants.Food_one))),
+                    fit: BoxFit.cover, image: AssetImage(videoData["bg"]))),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               child: Column(
@@ -47,7 +42,7 @@ class CustomVideoCard extends StatelessWidget {
                               size: 14,
                             ),
                             Text(
-                              rating,//map creation 
+                              videoData["rating"], //map creation
                               style: TextStyle(
                                   color: ColorConstants.white, fontSize: 14),
                             )
@@ -83,7 +78,7 @@ class CustomVideoCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12)),
                       child: Center(
                         child: Text(
-                          videosize!,//map creation
+                          videoData["videosize"], //map creation
                           style: TextStyle(
                               color: ColorConstants.white,
                               fontSize: 14,
@@ -103,7 +98,7 @@ class CustomVideoCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                VideoTitle,//map creaction
+                videoData["videotitle"], //map creaction
                 style: TextStyle(
                     color: ColorConstants.black,
                     fontSize: 16,
@@ -120,13 +115,13 @@ class CustomVideoCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 16,
-                backgroundImage: AssetImage("assets/image/shopei.jpeg"),
+                backgroundImage: AssetImage(videoData["image"]),
               ),
               SizedBox(
                 width: 8,
               ),
               Text(
-                "By Niki Samantha",
+                videoData["subtitle"],
                 style: TextStyle(
                     color: ColorConstants.lightGrey,
                     fontSize: 12,
