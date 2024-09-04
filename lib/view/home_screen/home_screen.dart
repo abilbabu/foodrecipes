@@ -10,7 +10,26 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          children: [_buildtitleSection(), _trendingSection()],
+          children: [
+            _buildtitleSection(),
+            //title
+            _trendingSection(),
+            // video card custom
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Popular category",
+                    style: TextStyle(
+                        color: ColorConstants.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
+                )
+              ],
+            )
+          ],
         ),
       ),
     );
@@ -46,8 +65,20 @@ class HomeScreen extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-        Row(
-          children: [CustomVideoCard()],
+        SizedBox(
+          height: 254,
+          child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => CustomVideoCard(//map[index]..creationmethod
+                    rating: "5.5",
+                    videosize: "10:16",
+                    VideoTitle: "How to make sushi at home",
+                  ),
+              separatorBuilder: (context, index) => SizedBox(
+                    width: 16,
+                  ),
+              itemCount: 6),
         )
       ],
     );
