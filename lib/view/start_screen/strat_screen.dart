@@ -28,41 +28,41 @@ class _StratScreenState extends State<StratScreen> {
 
   Widget _buildHeader() {
     return Positioned(
-            top: 13,
-            left: 0,
-            right: 0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.star,
-                  color: ColorConstants.white,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                // Text(
-                //   " 60k+ Premium recipes",
-                //   style: TextStyle(color: ColorConstants.white),
-                // )
-                RichText(
-                    text: TextSpan(
-                        text: "60k+ ",
-                        style: TextStyle(
-                            color: ColorConstants.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                        children: [
-                      TextSpan(
-                          text: " Premium recipes",
-                          style: TextStyle(
-                              color: ColorConstants.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.normal))
-                    ]))
-              ],
-            ),
-          );
+      top: 13,
+      left: 0,
+      right: 0,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.star,
+            color: ColorConstants.white,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          // Text(
+          //   " 60k+ Premium recipes",
+          //   style: TextStyle(color: ColorConstants.white),
+          // )
+          RichText(
+              text: TextSpan(
+                  text: "60k+ ",
+                  style: TextStyle(
+                      color: ColorConstants.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                  children: [
+                TextSpan(
+                    text: " Premium recipes",
+                    style: TextStyle(
+                        color: ColorConstants.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal))
+              ]))
+        ],
+      ),
+    );
   }
 
   Widget _buildGradientSections() {

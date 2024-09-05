@@ -1,86 +1,102 @@
 import 'package:flutter/material.dart';
+import 'package:foodrecipes/dummy_db.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
-import 'package:foodrecipes/utils/constants/image_constants.dart';
 import 'package:foodrecipes/view/global_widgets/custom_video_cart.dart';
+import 'package:foodrecipes/view/home_screen/Widget/popular_category_card.dart';
 
 class HomeScreen extends StatelessWidget {
-    final List<Map> videocard = [
-    {
-      "bg": ImageConstants.Food_one,
-      "rating": "4.5",
-      "videosize": "10:59",
-      "videotitle": "How to make sushi at home",
-      "image": "assets/image/shopei.jpeg",
-      "subtitle": "By Niki Samantha",
-    },
-    {
-      "bg": ImageConstants.Food_two,
-      "rating": "4.7",
-      "videosize": "8:30",
-      "videotitle": "Easy Pasta Recipe",
-      "image": "assets/image/shopten.jpeg",
-      "subtitle": "By Chef Antonio"
-    },
-    {
-      "bg": ImageConstants.Food_three,
-      "rating": "4.3",
-      "videosize": "12:15",
-      "videotitle": "Best Homemade Pizza",
-      "image": "assets/image/seven.webp",
-      "subtitle": "By Maria Rodriguez"
-    },
-    {
-      "bg": ImageConstants.Food_four,
-      "rating": "4.8",
-      "videosize": "9:45",
-      "videotitle": "Quick Salad Ideas",
-      "image": "assets/image/nine.jpeg",
-      "subtitle": "By Sarah Lee",
-    },
-    {
-      "bg": ImageConstants.Food_five,
-      "rating": "4.6",
-      "videosize": "7:20",
-      "videotitle": "Vegan Desserts",
-      "image": "assets/image/four.webp",
-      "subtitle": "By David Kim"
-    },
-    {
-      "bg": ImageConstants.Food_Six,
-      "rating": "4.9",
-      "videosize": "15:00",
-      "videotitle": "Perfect BBQ Chicken",
-      "image": "assets/image/bad.jpeg",
-      "subtitle": "By Arjun Sing"
-    }
-  ];
-
-
- HomeScreen({super.key, });
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _buildtitleSection(),
+              //title
+              _trendingSection(),
+              // video card custom
+              _popularCategorySection()
+              //section#3 popular category
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _popularCategorySection() {
+    return DefaultTabController(
+      length: 5,
+      initialIndex: 1,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildtitleSection(),
-            //title
-            _trendingSection(),
-            // video card custom
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Popular category",
-                    style: TextStyle(
-                        color: ColorConstants.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                "popular category",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
+              ),
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            TabBar(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelColor: ColorConstants.white,
+                unselectedLabelColor: ColorConstants.PrimaryColor,
+                dividerHeight: 0,
+                isScrollable: true,
+                tabAlignment: TabAlignment.start,
+                indicator: BoxDecoration(
+                    color: ColorConstants.PrimaryColor,
+                    borderRadius: BorderRadius.circular(10)),
+                tabs: [
+                  Tab(
+                    child: Text("Salad"),
                   ),
-                )
-              ],
+                  Tab(
+                    child: Text("Breakfast"),
+                  ),
+                  Tab(
+                    child: Text("Apetizer"),
+                  ),
+                  Tab(
+                    child: Text("noodle"),
+                  ),
+                  Tab(
+                    child: Text("Lunch"),
+                  ),
+                ]),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 233,
+              child: ListView.separated(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => popularcategorycard(
+                        image: DummyDb.popularCategoryList[index]['image'],
+                        title: DummyDb.popularCategoryList[index]['title'],
+                        duration: DummyDb.popularCategoryList[index]
+                            ['duration'],
+                      ),
+                  separatorBuilder: (context, index) => SizedBox(
+                        width: 16,
+                      ),
+                  itemCount: DummyDb.popularCategoryList.length),
             )
           ],
         ),
@@ -123,12 +139,19 @@ class HomeScreen extends StatelessWidget {
           child: ListView.separated(
               padding: EdgeInsets.symmetric(horizontal: 20),
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) =>
-                  CustomVideoCard(videoData :videocard[index]), //video card
+              itemBuilder: (context, index) => CustomVideoCard(
+                    imageurl: DummyDb.trendingNowList[index]['imageurl'],
+                    rating: DummyDb.trendingNowList[index]['rating'],
+                    duration: DummyDb.trendingNowList[index]['duration'],
+                    title: DummyDb.trendingNowList[index]['title'],
+                    profileimage: DummyDb.trendingNowList[index]
+                        ['profileimage'],
+                    userName: DummyDb.trendingNowList[index]['userName'],
+                  ), //video card
               separatorBuilder: (context, index) => SizedBox(
                     width: 16,
                   ),
-              itemCount: videocard.length),
+              itemCount: DummyDb.trendingNowList.length),
         )
       ],
     );

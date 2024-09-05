@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
 
 class CustomVideoCard extends StatelessWidget {
-  final Map videoData;
-
-  CustomVideoCard({
+String imageurl;
+String rating;
+String duration;
+String title;
+String profileimage;
+String userName;
+ CustomVideoCard({ required this.imageurl,
+ required this.rating,
+ required this.duration,
+ required this.title,
+ required this.profileimage,
+ required this.userName,
     super.key,
-    required this.videoData,
   });
 
   @override
@@ -21,7 +29,7 @@ class CustomVideoCard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
-                    fit: BoxFit.cover, image: AssetImage(videoData["bg"]))),
+                    fit: BoxFit.cover, image: AssetImage(imageurl))),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               child: Column(
@@ -32,7 +40,7 @@ class CustomVideoCard extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                             color: ColorConstants.lightbb.withOpacity(.3)),
-                        height: 50,
+                        height: 30,
                         width: 50,
                         child: Row(
                           children: [
@@ -42,7 +50,7 @@ class CustomVideoCard extends StatelessWidget {
                               size: 14,
                             ),
                             Text(
-                              videoData["rating"], //map creation
+                              rating, //map creation
                               style: TextStyle(
                                   color: ColorConstants.white, fontSize: 14),
                             )
@@ -78,7 +86,7 @@ class CustomVideoCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12)),
                       child: Center(
                         child: Text(
-                          videoData["videosize"], //map creation
+                          duration, //map creation
                           style: TextStyle(
                               color: ColorConstants.white,
                               fontSize: 14,
@@ -98,7 +106,7 @@ class CustomVideoCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                videoData["videotitle"], //map creaction
+                title, //map creaction
                 style: TextStyle(
                     color: ColorConstants.black,
                     fontSize: 16,
@@ -115,15 +123,15 @@ class CustomVideoCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 16,
-                backgroundImage: AssetImage(videoData["image"]),
+                backgroundImage: AssetImage(profileimage),
               ),
               SizedBox(
                 width: 8,
               ),
               Text(
-                videoData["subtitle"],
+                userName,
                 style: TextStyle(
-                    color: ColorConstants.lightGrey,
+                    color: Colors.grey,
                     fontSize: 12,
                     fontWeight: FontWeight.w400),
               )
