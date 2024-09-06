@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
+import 'package:foodrecipes/view/bookmark_screen/bookmark_screen.dart';
 import 'package:foodrecipes/view/home_screen/home_screen.dart';
 
 class BottomnavbarScreen extends StatefulWidget {
@@ -13,9 +14,7 @@ class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
   int selectedTab = 0;
   List screen = [
     HomeScreen(),
-    Container(
-      color: Colors.green,
-    ),
+    BookmarkScreen(),
     Container(
       color: Colors.blue,
     ),

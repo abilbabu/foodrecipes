@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
 
 class CustomVideoCard extends StatelessWidget {
+  double width;
 String imageurl;
 String rating;
 String duration;
@@ -9,6 +10,7 @@ String title;
 String profileimage;
 String userName;
  CustomVideoCard({ required this.imageurl,
+ this.width=280,
  required this.rating,
  required this.duration,
  required this.title,
@@ -20,12 +22,12 @@ String userName;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 280,
+      width: width,
       child: Column(
         children: [
           Container(
             height: 180,
-            width: 290,
+            width: width,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(

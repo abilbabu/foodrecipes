@@ -51,7 +51,7 @@ class DummyDb {
       "userName": "By Arjun Sing"
     }
   ];
- static List<Map<String, String>> popularCategoryList = [
+ static List popularCategoryList = [
   {
     "image":"assets/image/Pepper.jpeg",
     "title": "Pepper Sweetcorn Ramen",

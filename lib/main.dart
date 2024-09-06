@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodrecipes/view/splash_screen/splash_screen.dart';
 import 'package:foodrecipes/view/start_screen/strat_screen.dart';
 
 void main(List<String> args) {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StratScreen(),
+      home: SplashScreen(),
     );
   }
 }

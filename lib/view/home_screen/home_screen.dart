@@ -17,11 +17,11 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               _buildtitleSection(),
-              //title
+              //#1 sectaion title
               _trendingSection(),
-              // video card custom
+              //#2 section trending now video card custom
               _popularCategorySection()
-              //section#3 popular category
+              //#3 section popular category
             ],
           ),
         ),
