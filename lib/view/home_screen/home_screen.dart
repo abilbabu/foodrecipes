@@ -3,6 +3,9 @@ import 'package:foodrecipes/dummy_db.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
 import 'package:foodrecipes/view/global_widgets/custom_video_cart.dart';
 import 'package:foodrecipes/view/home_screen/Widget/popular_category_card.dart';
+import 'package:foodrecipes/view/home_screen/Widget/popular_creators.dart';
+import 'package:foodrecipes/view/home_screen/Widget/recentrecipe.dart';
+import 'package:foodrecipes/view/recipedetialscreen/recipedetialscreen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -20,10 +23,125 @@ class HomeScreen extends StatelessWidget {
               //#1 sectaion title
               _trendingSection(),
               //#2 section trending now video card custom
-              _popularCategorySection()
+              _popularCategorySection(),
               //#3 section popular category
+              _recentrecipeSection(),
+              //#4 section recent recipe
+              _popularCreatorsSection(),
+              //#5 section Popular crestors
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _popularCreatorsSection() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20),
+      child: SizedBox(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 20, top: 12),
+              child: Row(
+                children: [
+                  Text(
+                    "Popular creators",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  ),
+                  Spacer(),
+                  Text(
+                    "See All",
+                    style: TextStyle(
+                        color: ColorConstants.PrimaryColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14),
+                  ),
+                  SizedBox(width: 8),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: ColorConstants.PrimaryColor,
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            SizedBox(
+              height: 259,
+              child: ListView.separated(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => Popularcreators(
+                        image: DummyDb.popularcreatorsList[index]['image'],
+                        user: DummyDb.popularcreatorsList[index]['user'],
+                      ),
+                  separatorBuilder: (context, index) => SizedBox(
+                        width: 5,
+                      ),
+                  itemCount: DummyDb.popularcreatorsList.length),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _recentrecipeSection() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 13),
+      child: SizedBox(
+        height: 259,
+        width: 375,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 20, top: 12),
+              child: Row(
+                children: [
+                  Text(
+                    "Recent recipe",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  ),
+                  Spacer(),
+                  Text(
+                    "See All",
+                    style: TextStyle(
+                        color: ColorConstants.PrimaryColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14),
+                  ),
+                  SizedBox(width: 8),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: ColorConstants.PrimaryColor,
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            SizedBox(
+              height: 191,
+              child: ListView.separated(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => recentrecipe(
+                        image: DummyDb.recentRecipeList[index]['image'],
+                        title: DummyDb.recentRecipeList[index]['title'],
+                        user: DummyDb.recentRecipeList[index]['user'],
+                      ),
+                  separatorBuilder: (context, index) => SizedBox(
+                        width: 16,
+                      ),
+                  itemCount: DummyDb.recentRecipeList.length),
+            )
+          ],
         ),
       ),
     );
@@ -140,6 +258,23 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => CustomVideoCard(
+                    onCardTaped: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Recipedetialscreen(
+                              recipetitle: DummyDb.trendingNowList[index]
+                                  ['title'],
+                              recipeimage: DummyDb.trendingNowList[index]
+                                  ['imageurl'],
+                              recipeprofile: DummyDb.trendingNowList[index]
+                                  ['profileimage'],
+                              recipeusername: DummyDb.trendingNowList[index]
+                                  ['userName'],
+                                  raciperating:DummyDb.trendingNowList[index]['rating'], 
+                            ),
+                          ));
+                    },
                     imageurl: DummyDb.trendingNowList[index]['imageurl'],
                     rating: DummyDb.trendingNowList[index]['rating'],
                     duration: DummyDb.trendingNowList[index]['duration'],

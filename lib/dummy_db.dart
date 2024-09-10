@@ -51,36 +51,120 @@ class DummyDb {
       "userName": "By Arjun Sing"
     }
   ];
- static List popularCategoryList = [
-  {
-    "image":"assets/image/Pepper.jpeg",
-    "title": "Pepper Sweetcorn Ramen",
-    "duration": "10 Mins"
-  },
-  {
-    "image":"assets/image/Spaghetti.jpeg",
-    "title": "Spaghetti Carbonara",
-    "duration": "15 Mins"
-  },
-  {
-    "image":"assets/image/Chicken.jpeg",
-    "title": "Chicken Caesar Salad",
-    "duration": "20 Mins"
-  },
-  {
-    "image":"assets/image/Beef.webp",
-    "title": "Beef Tacos",
-    "duration": "25 Mins"
-  },
-  {
-    "image":"assets/image/Vegetable.jpeg",
-    "title": "Vegetable Stir-Fry",
-    "duration": "15 Mins"
-  },
-  {
-    "image":"assets/image/Mango.webp",
-    "title": "Mango Smoothie",
-    "duration": "5 Mins"
-  },
-];
+  static List popularCategoryList = [
+    {
+      "image": "assets/image/Pepper.jpeg",
+      "title": "Pepper Sweetcorn Ramen",
+      "duration": "10 Mins"
+    },
+    {
+      "image": "assets/image/Spaghetti.jpeg",
+      "title": "Spaghetti Carbonara",
+      "duration": "15 Mins"
+    },
+    {
+      "image": "assets/image/Chicken.jpeg",
+      "title": "Chicken Caesar Salad",
+      "duration": "20 Mins"
+    },
+    {
+      "image": "assets/image/Beef.webp",
+      "title": "Beef Tacos",
+      "duration": "25 Mins"
+    },
+    {
+      "image": "assets/image/Vegetable.jpeg",
+      "title": "Vegetable Stir-Fry",
+      "duration": "15 Mins"
+    },
+    {
+      "image": "assets/image/Mango.webp",
+      "title": "Mango Smoothie",
+      "duration": "5 Mins"
+    },
+  ];
+  static List recentRecipeList = [
+    {
+      "image": "assets/image/Bug.png",
+      "title": "Indonesian Chicken Burger",
+      "user": "By Adrianna Curl",
+    },
+    {
+      "image": "assets/image/Vegan.jpeg",
+      "title": "Vegan Tacos",
+      "user": "By Jordan Lee",
+    },
+    {
+      "image": "assets/image/Spaghetti.webp",
+      "title": "Spaghetti Carbonara",
+      "user": "By Maria Gonzales",
+    },
+    {
+      "image": "assets/image/ClassicBeef.jpeg",
+      "title": "Classic Beef Stroganoff",
+      "user": "By Liam Smith",
+    },
+    {
+      "image": "assets/image/ThaiGreen.webp",
+      "title": "Thai Green Curry",
+      "user": "By Priya Patel",
+    },
+    {
+      "image": "assets/image/lime.jpeg",
+      "title": "Lemon Drizzle Cake",
+      "user": "By Emily Johnson",
+    },
+  ];
+ static List popularcreatorsList = [
+    {
+      "image": "assets/image/menth.webp",
+      "user": "Troyan smith",
+    },
+    {
+      "image": "assets/image/ment.webp",
+      "user": "James Wolden",
+    },
+    {
+      "image": "assets/image/ss.webp",
+      "user": "Niki Samantha",
+    },
+    {
+      "image": "assets/image/six.webp",
+      "user": "Roberta Anny",
+    },
+    {
+      "image": "assets/image/seven.webp",
+      "user": "Priya Patel",
+    },
+    {
+      "image": "assets/image/five.webp",
+      "user": "Emily Johnson",
+    },
+  ];
+  static List incredientdata = [
+    {
+      "incredientName": "Bread",
+      "incredientImage":"assets/image/Bread.jpeg",
+      "incredientQuantity": "200g",
+    },
+    {
+      "incredientName": "Eggs",
+      "incredientImage":"assets/image/Eggs.jpeg",
+      "incredientQuantity": "150g"
+    },
+    {
+      "incredientName": "Milk",
+      "incredientImage":"assets/image/Milk.png",
+      "incredientQuantity": "50g"
+    },
+    {
+      "incredientName": "Butter",
+      "incredientImage":"assets/image/Butter.jpeg",
+      "incredientQuantity": "80g"
+    },
+    {
+      "incredientName": "Vanilla",
+      "incredientImage":"assets/image/Vanilla.jpeg",
+            "incredientQuantity": "100g"
+},];
 }
