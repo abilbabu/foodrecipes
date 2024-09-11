@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
+import 'package:foodrecipes/view/Create_recipe_screen/create_recipe_screen.dart';
 import 'package:foodrecipes/view/bookmark_screen/bookmark_screen.dart';
 import 'package:foodrecipes/view/home_screen/home_screen.dart';
 
@@ -29,7 +30,13 @@ class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
         backgroundColor: ColorConstants.PrimaryColor,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CreateRecipeScreen(),
+              ));
+        },
         child: Icon(
           Icons.add,
           color: ColorConstants.white,

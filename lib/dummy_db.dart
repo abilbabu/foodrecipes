@@ -115,7 +115,7 @@ class DummyDb {
       "user": "By Emily Johnson",
     },
   ];
- static List popularcreatorsList = [
+  static List popularcreatorsList = [
     {
       "image": "assets/image/menth.webp",
       "user": "Troyan smith",
@@ -144,27 +144,28 @@ class DummyDb {
   static List incredientdata = [
     {
       "incredientName": "Bread",
-      "incredientImage":"assets/image/Bread.jpeg",
+      "incredientImage": "assets/image/Bread.jpeg",
       "incredientQuantity": "200g",
     },
     {
       "incredientName": "Eggs",
-      "incredientImage":"assets/image/Eggs.jpeg",
+      "incredientImage": "assets/image/Eggs.jpeg",
       "incredientQuantity": "150g"
     },
     {
       "incredientName": "Milk",
-      "incredientImage":"assets/image/Milk.png",
+      "incredientImage": "assets/image/Milk.png",
       "incredientQuantity": "50g"
     },
     {
       "incredientName": "Butter",
-      "incredientImage":"assets/image/Butter.jpeg",
+      "incredientImage": "assets/image/Butter-removebg-preview.png",
       "incredientQuantity": "80g"
     },
     {
       "incredientName": "Vanilla",
-      "incredientImage":"assets/image/Vanilla.jpeg",
-            "incredientQuantity": "100g"
-},];
+      "incredientImage": "assets/image/Vanilla-removebg-preview.png",
+      "incredientQuantity": "100g"
+    },
+  ];
 }

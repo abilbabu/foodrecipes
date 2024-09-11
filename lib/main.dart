@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/view/splash_screen/splash_screen.dart';
-import 'package:foodrecipes/view/start_screen/strat_screen.dart';
+
 
 void main(List<String> args) {
   runApp(MyApp());

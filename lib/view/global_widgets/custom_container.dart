@@ -6,11 +6,14 @@ class CustomContainerScreen extends StatelessWidget {
     required this.incredientQuantity,
     required this.incredientName,
     required this.incredientImage,
+    this.haveArrow=false,
     super.key,
   });
 final String incredientName;
 final String incredientImage;
 final String incredientQuantity;
+final bool haveArrow;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,6 +58,10 @@ final String incredientQuantity;
                 fontWeight: FontWeight.w400,
               ),
             ),
+           haveArrow? Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Icon(Icons.arrow_forward_outlined),
+            ):SizedBox(),
           ],
         ),
       ),

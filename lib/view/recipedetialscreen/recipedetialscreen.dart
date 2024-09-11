@@ -35,14 +35,11 @@ class Recipedetialscreen extends StatelessWidget {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: SingleChildScrollView(
           child: Column(
-            children: [
-              _buildTitleSection(),
-              _BuildContainerSection()
-            ],
+            children: [_buildTitleSection(), _BuildContainerSection()],
           ),
         ),
       ),
@@ -51,67 +48,65 @@ class Recipedetialscreen extends StatelessWidget {
 
   Column _BuildContainerSection() {
     return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+        Row(
+          children: [
+            Text(
+              'Ingredients',
+              style: TextStyle(
+                color: ColorConstants.black,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Spacer(),
+            Row(
               children: [
-                Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
-                Row(
-                  children: [
-                    Text(
-                      'Ingredients',
-                      style: TextStyle(
-                        color: ColorConstants.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Spacer(),
-                    Row(
-                      children: [
-                        Text(
-                          DummyDb.incredientdata.length.toString(),
-                          style: TextStyle(
-                            color: ColorConstants.lightGrey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 4,
-                        ),
-                        Text(
-                          "Item",
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: ColorConstants.lightGrey),
-                        )
-                      ],
-                    )
-                  ],
+                Text(
+                  DummyDb.incredientdata.length.toString(),
+                  style: TextStyle(
+                    color: ColorConstants.lightGrey,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-                SizedBox(height: 13),
                 SizedBox(
-                  height: 300,
-                  child: ListView.separated(
-                      // physics: NeverScrollableScrollPhysics(),
-                      // shrinkWrap: true,
-                      itemBuilder: (context, index) => CustomContainerScreen(
-                            incredientImage: DummyDb.incredientdata[index]
-                                ["incredientImage"],
-                            incredientName: DummyDb.incredientdata[index]
-                                ["incredientName"],
-                            incredientQuantity: DummyDb.incredientdata[index]
-                                ["incredientQuantity"],
-                          ),
-                      separatorBuilder: (context, index) => SizedBox(
-                            height: 12,
-                          ),
-                      itemCount: DummyDb.incredientdata.length),
+                  width: 4,
+                ),
+                Text(
+                  "Item",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: ColorConstants.lightGrey),
                 )
               ],
-            );
+            )
+          ],
+        ),
+        SizedBox(height: 13),
+        SizedBox(
+          child: ListView.separated(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (context, index) => CustomContainerScreen(
+                    // haveArrow: true,
+                    incredientImage: DummyDb.incredientdata[index]
+                        ["incredientImage"],
+                    incredientName: DummyDb.incredientdata[index]
+                        ["incredientName"],
+                    incredientQuantity: DummyDb.incredientdata[index]
+                        ["incredientQuantity"],
+                  ),
+              separatorBuilder: (context, index) => SizedBox(
+                    height: 12,
+                  ),
+              itemCount: DummyDb.incredientdata.length),
+        )
+      ],
+    );
   }
 
   Widget _buildTitleSection() {
