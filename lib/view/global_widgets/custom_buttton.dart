@@ -6,8 +6,14 @@ class CustomButton extends StatelessWidget {
     required this.onButtonTap,
     required this.text,
     super.key,
+    this.height,
+    this.width,
+    this.fontSize,
   });
   final String text;
+  final double? height;
+  final double? width;
+  final double? fontSize;
   final void Function()? onButtonTap;
 
   @override
@@ -15,13 +21,17 @@ class CustomButton extends StatelessWidget {
     return InkWell(
       onTap: onButtonTap,
       child: Container(
+        height: height,
+        width: width,
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Text(
-          text,
-          style: TextStyle(
-              color: ColorConstants.white,
-              fontSize: 14,
-              fontWeight: FontWeight.w600),
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(
+                color: ColorConstants.white,
+                fontSize: fontSize ?? 14,
+                fontWeight: FontWeight.w600),
+          ),
         ),
         decoration: BoxDecoration(
             color: ColorConstants.PrimaryColor,

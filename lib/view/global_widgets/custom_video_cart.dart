@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
 
-class CustomVideoCard extends StatelessWidget {
+ // ignore: must_be_immutable
+ class CustomVideoCard extends StatelessWidget {
   double width;
 String imageurl;
 String rating;

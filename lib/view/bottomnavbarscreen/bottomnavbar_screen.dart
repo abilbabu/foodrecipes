@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
 import 'package:foodrecipes/view/Create_recipe_screen/create_recipe_screen.dart';
+import 'package:foodrecipes/view/Notifications_screen/notifications_screen.dart';
 import 'package:foodrecipes/view/bookmark_screen/bookmark_screen.dart';
 import 'package:foodrecipes/view/home_screen/home_screen.dart';
 
@@ -16,9 +17,7 @@ class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
   List screen = [
     HomeScreen(),
     BookmarkScreen(),
-    Container(
-      color: Colors.blue,
-    ),
+    NotificationsScreen(),
     Container(
       color: Colors.yellow,
     )

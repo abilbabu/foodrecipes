@@ -99,6 +99,7 @@ class Recipedetialscreen extends StatelessWidget {
                         ["incredientName"],
                     incredientQuantity: DummyDb.incredientdata[index]
                         ["incredientQuantity"],
+                    imageSize: 30,
                   ),
               separatorBuilder: (context, index) => SizedBox(
                     height: 12,

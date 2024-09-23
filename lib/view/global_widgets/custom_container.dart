@@ -6,13 +6,16 @@ class CustomContainerScreen extends StatelessWidget {
     required this.incredientQuantity,
     required this.incredientName,
     required this.incredientImage,
-    this.haveArrow=false,
+    this.haveArrow = false,
     super.key,
+    this.fit,
+    required double imageSize,
   });
-final String incredientName;
-final String incredientImage;
-final String incredientQuantity;
-final bool haveArrow;
+  final String incredientName;
+  final String incredientImage;
+  final String incredientQuantity;
+  final BoxFit? fit;
+  final bool haveArrow;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,7 @@ final bool haveArrow;
       decoration: BoxDecoration(
         color: ColorConstants.grey1,
         borderRadius: BorderRadius.circular(12),
-                   ),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 13),
         child: Row(
@@ -31,11 +34,12 @@ final bool haveArrow;
               width: 52,
               height: 52,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      image: AssetImage(incredientImage),
-                      fit: BoxFit.cover)),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                    image: AssetImage(incredientImage),
+                    fit: fit ?? BoxFit.cover),
+              ),
             ),
             SizedBox(
               width: 16,
@@ -58,10 +62,12 @@ final bool haveArrow;
                 fontWeight: FontWeight.w400,
               ),
             ),
-           haveArrow? Padding(
-              padding: const EdgeInsets.only(left: 8),
-              child: Icon(Icons.arrow_forward_outlined),
-            ):SizedBox(),
+            haveArrow
+                ? Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Icon(Icons.arrow_forward_outlined),
+                  )
+                : SizedBox(),
           ],
         ),
       ),
