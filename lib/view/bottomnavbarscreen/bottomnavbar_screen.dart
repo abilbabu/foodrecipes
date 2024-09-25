@@ -4,6 +4,7 @@ import 'package:foodrecipes/view/Create_recipe_screen/create_recipe_screen.dart'
 import 'package:foodrecipes/view/Notifications_screen/notifications_screen.dart';
 import 'package:foodrecipes/view/bookmark_screen/bookmark_screen.dart';
 import 'package:foodrecipes/view/home_screen/home_screen.dart';
+import 'package:foodrecipes/view/profile_screen/profile_screen.dart';
 
 class BottomnavbarScreen extends StatefulWidget {
   const BottomnavbarScreen({super.key});
@@ -18,9 +19,7 @@ class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
     HomeScreen(),
     BookmarkScreen(),
     NotificationsScreen(),
-    Container(
-      color: Colors.yellow,
-    )
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

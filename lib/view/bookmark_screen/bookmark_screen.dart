@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/dummy_db.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
+import 'package:foodrecipes/view/global_widgets/custom_recipe_cart.dart';
 import 'package:foodrecipes/view/global_widgets/custom_video_cart.dart';
 import 'package:foodrecipes/view/recipedetialscreen/recipedetialscreen.dart';
 
@@ -37,41 +38,63 @@ class BookmarkScreen extends StatelessWidget {
                 ),
               ]),
         ),
-        body: ListView.separated(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            scrollDirection: Axis.vertical,
-            itemBuilder: (context, index) => CustomVideoCard(
-                  onCardTaped: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Recipedetialscreen(
-                            recipetitle: DummyDb.trendingNowList[index]
-                                ['title'],
-                            recipeimage: DummyDb.trendingNowList[index]
-                                ['imageurl'],
-                            recipeprofile: DummyDb.trendingNowList[index]
-                                ['profileimage'],
-                            recipeusername: DummyDb.trendingNowList[index]
-                                ['userName'],
-                            raciperating: DummyDb.trendingNowList[index]
-                                ['rating'],
-                          ),
-                        ));
-                  },
-                  width: double.infinity,
-                  imageurl: DummyDb.trendingNowList[index]['imageurl'],
-                  rating: DummyDb.trendingNowList[index]['rating'],
-                  duration: DummyDb.trendingNowList[index]['duration'],
-                  title: DummyDb.trendingNowList[index]['title'],
-                  profileimage: DummyDb.trendingNowList[index]['profileimage'],
-                  userName: DummyDb.trendingNowList[index]['userName'],
-                ),
-            separatorBuilder: (context, index) => SizedBox(
-                  height: 16,
-                ),
-            itemCount: DummyDb.trendingNowList.length),
+        body: Expanded(
+          child: TabBarView(
+            children: [
+              _buildVideocart(),
+              _buildRecipeCard()
+            ],
+          ),
+        ),
       ),
     );
+  }
+
+  Widget _buildRecipeCard() {
+    return ListView.separated(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, index) => CustomRecipeCart(
+                      image: DummyDb.Recipecard[index]["image"],
+                      title: DummyDb.Recipecard[index]["title"],
+                      rating: DummyDb.Recipecard[index]["rating"],
+                      Ingredients: DummyDb.Recipecard[index]["Ingredients"],
+                    ),
+                separatorBuilder: (context, index) => SizedBox(),
+                itemCount: DummyDb.Recipecard.length);
+  }
+
+  Widget _buildVideocart() {
+    return ListView.separated(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index) => CustomVideoCard(
+              onCardTaped: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Recipedetialscreen(
+                        recipetitle: DummyDb.trendingNowList[index]['title'],
+                        recipeimage: DummyDb.trendingNowList[index]['imageurl'],
+                        recipeprofile: DummyDb.trendingNowList[index]
+                            ['profileimage'],
+                        recipeusername: DummyDb.trendingNowList[index]
+                            ['userName'],
+                        raciperating: DummyDb.trendingNowList[index]['rating'],
+                      ),
+                    ));
+              },
+              width: double.infinity,
+              imageurl: DummyDb.trendingNowList[index]['imageurl'],
+              rating: DummyDb.trendingNowList[index]['rating'],
+              duration: DummyDb.trendingNowList[index]['duration'],
+              title: DummyDb.trendingNowList[index]['title'],
+              profileimage: DummyDb.trendingNowList[index]['profileimage'],
+              userName: DummyDb.trendingNowList[index]['userName'],
+            ),
+        separatorBuilder: (context, index) => SizedBox(
+              height: 16,
+            ),
+        itemCount: DummyDb.trendingNowList.length);
   }
 }

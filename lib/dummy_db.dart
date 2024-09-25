@@ -168,4 +168,42 @@ class DummyDb {
       "incredientQuantity": "100g"
     },
   ];
+  static List Recipecard = [
+    {
+      "image": "assets/image/Bug.png",
+      "title": "How to make Italian Spaghetti at home",
+      "rating": "4.5",
+      "Ingredients": "12 Ingredients | 40 min"
+    },
+    {
+      "image": "assets/image/Tacos.jpg",
+      "title": "Authentic Tacos Recipe",
+      "rating": "4.7",
+      "Ingredients": "09 Ingredients | 38 min"
+    },
+    {
+      "image": "assets/image/Chicken Curry.jpg",
+      "title": "Andhra Style Chicken Curry (Kodi Kura)",
+      "rating": "4.6",
+      "Ingredients": "10 Ingredients | 45 min"
+    },
+    {
+      "image": "assets/image/Salad.jpg",
+      "title": " Chinese chicken salad, avocado tuna salad",
+      "rating": "4.3",
+      "Ingredients": "07 Ingredients | 30 min"
+    },
+    {
+      "image": "assets/image/Chocolate.webp",
+      "title": "Delicious Chocolate Cake",
+      "rating": "4.8",
+      "Ingredients": "10 Ingredients | 44 min"
+    },
+    {
+      "image": "assets/image/brrrr.webp",
+      "title": "Classic Ground Beef Tacos",
+      "rating": "4.2",
+      "Ingredients": "11 Ingredients | 50 min"
+    },
+  ];
 }

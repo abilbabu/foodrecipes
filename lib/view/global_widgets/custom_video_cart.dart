@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:foodrecipes/utils/constants/color_constants.dart';
 
- // ignore: must_be_immutable
- class CustomVideoCard extends StatelessWidget {
+// ignore: must_be_immutable
+class CustomVideoCard extends StatelessWidget {
   double width;
-String imageurl;
-String rating;
-String duration;
-String title;
-String profileimage;
-String userName;
-void Function()? onCardTaped;
- CustomVideoCard({ 
-  required this.imageurl,
- this.width=280,
- required this.rating,
- required this.duration,
- required this.title,
- required this.profileimage,
- required this.userName,
- this.onCardTaped,
+  String imageurl;
+  String rating;
+  String duration;
+  String title;
+  String profileimage;
+  String userName;
+  void Function()? onCardTaped;
+  CustomVideoCard({
+    required this.imageurl,
+    this.width = 280,
+    required this.rating,
+    required this.duration,
+    required this.title,
+    required this.profileimage,
+    required this.userName,
+    this.onCardTaped,
     super.key,
   });
 
