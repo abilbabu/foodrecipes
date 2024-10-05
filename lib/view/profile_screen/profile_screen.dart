@@ -46,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Expanded _buildTabbarViewSection() {
+  Widget _buildTabbarViewSection() {
     return Expanded(
               child: TabBarView(children: [
             _buildVideoTab(),
@@ -54,7 +54,7 @@ class ProfileScreen extends StatelessWidget {
           ]));
   }
 
-  TabBar _buildTabBarSection() {
+  Widget _buildTabBarSection() {
     return TabBar(
               padding: EdgeInsets.symmetric(horizontal: 16),
               indicatorSize: TabBarIndicatorSize.tab,
